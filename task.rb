@@ -62,16 +62,11 @@ def q7
 
 end
 
-def q8
+def q8  # まだ出来てない
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages.each do | p_lang |
 
-    programming_languages << p_lang.capitalize
-
-    p p_lang
-  end
   # 以下は変更しないで下さい
 
   p programming_languages
@@ -82,6 +77,7 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
+  names.each.with_index(1) { | name, i | puts "会員NO.#{i} #{name}さん" }
 
 end
 
@@ -89,10 +85,17 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+  foods.each do | food |
+    if food == "うに"
+      p "#{food}は好物です！"
+    else
+      p "#{food}はまぁまぁ好きです！"
+    end
+  end
 
 end
 
-def q11
+def q11 #まだ出来てない
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
@@ -103,6 +106,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  p data[:user][:name]
 
 end
 
@@ -112,13 +116,19 @@ def q13
 
   # 以下に回答を記載
 
+  user_data.merge!(update_data)
+  p user_data
+
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-
+  keys = []
   # 以下に回答を記載
-
+  data.each_key do |key|
+    keys << key
+  end
+  p keys
 end
 
 def q15
@@ -126,6 +136,17 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  all_data = [data1, data2]
+  
+  all_data.each.with_index(1) do |data,i|
+
+    if data[:age]
+      puts "data#{i} = #{data}-> OK"
+    else
+      puts "data#{i} = #{data}-> NG"
+    end
+
+  end
 
 end
 
@@ -138,6 +159,7 @@ def q16
   ]
 
   # 以下に回答を記載
+
 
 end
 
