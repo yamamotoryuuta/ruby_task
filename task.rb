@@ -5,7 +5,7 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  puts names << "斎藤"
+  p names << "斎藤"
 end
 
 def q2
@@ -13,21 +13,21 @@ def q2
   array2 = %w(bird bat tiger)
 
   # 以下に回答を記載
-  puts array1 + array2
+  p array1 + array2
 end
 
 def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
-  puts numbers.count(3)
+  p numbers.count(3)
 end
 
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  puts sports.compact
+  p sports.compact!
   
 end
 
@@ -36,8 +36,8 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
-  puts array1.empty?
-  puts array2.empty?
+  p array1.empty?
+  p array2.empty?
 end
 
 def q6
@@ -45,12 +45,21 @@ def q6
 
   # 以下に回答を記載
 
+  numbers2 = []
+
+  numbers1.each do | number |
+    numbers2 << number * 10
+  end 
+  p numbers2
+
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
+
+
 
 end
 
