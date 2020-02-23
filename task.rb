@@ -58,10 +58,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  p array.map(&:to_i)
-
-  p array
-
+  p array.map!(&:to_i)
 
 end
 
@@ -69,8 +66,14 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
+  programming_languages.each do | p_lang |
 
+    programming_languages << p_lang.capitalize
+
+    p p_lang
+  end
   # 以下は変更しないで下さい
+
   p programming_languages
   p upper_case_programming_languages
 end
