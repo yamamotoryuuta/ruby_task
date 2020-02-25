@@ -45,12 +45,16 @@ def q6
 
   # 以下に回答を記載
 
-  numbers2 = []
+  #  numbers2 = []
 
-  numbers1.each do | number |
-    numbers2 << number * 10
-  end 
+  # numbers1.each do | number |
+  #   numbers2 << number * 10
+  # end 
+  # p numbers2
+  numbers2 = numbers1.map!{|number| number*10 }
+
   p numbers2
+
 
 end
 
@@ -66,7 +70,17 @@ def q8  # まだ出来てない
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
+  upper_case_programming_languages = []
 
+  programming_languages.map { | lang | 
+  lang.capitalize!
+}
+
+  programming_languages.map { | lang | 
+  upper_case_programming_languages << lang.upcase
+}
+
+  # upper_case_programming_languages << programming_languages.upcase
   # 以下は変更しないで下さい
 
   p programming_languages
@@ -85,13 +99,23 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+  # foods.each do | food |
+  #   if food == "うに"
+  #     p "#{food}は好物です！"
+  #   else
+  #     p "#{food}はまぁまぁ好きです！"
+  #   end
+  # end
+
   foods.each do | food |
-    if food == "うに"
+    if food.include? "うに"
       p "#{food}は好物です！"
     else
       p "#{food}はまぁまぁ好きです！"
     end
   end
+
+    
 
 end
 
@@ -99,6 +123,11 @@ def q11 #まだ出来てない
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+    sports.flatten!.uniq!
+
+    sports.each.with_index(1) do |sport,i|
+      p "No#{i} #{sport}"
+    end
 
 end
 
@@ -123,12 +152,19 @@ end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-  keys = []
+  
   # 以下に回答を記載
-  data.each_key do |key|
-    keys << key
-  end
-  p keys
+
+  # keys = []
+  # data.each_key do |key|
+  #   keys << key
+  # end
+  # p keys
+
+keys = data.keys
+
+p keys
+
 end
 
 def q15
@@ -136,16 +172,26 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  # all_data = [data1, data2]
+  
+  # all_data.each.with_index(1) do |data,i|
+
+  #   if data[:age]
+  #     puts "data#{i} = #{data}-> OK"
+  #   else
+  #     puts "data#{i} = #{data}-> NG"
+  #   end
+  # end
+
   all_data = [data1, data2]
   
-  all_data.each.with_index(1) do |data,i|
+  all_data.each do |data|
 
-    if data[:age]
-      puts "data#{i} = #{data}-> OK"
+    if data.key?(:age)
+      p "OK"
     else
-      puts "data#{i} = #{data}-> NG"
+      p "NG"
     end
-
   end
 
 end
@@ -159,6 +205,15 @@ def q16
   ]
 
   # 以下に回答を記載
+
+  users.map {| user |
+  
+  name = user[:name]
+  age = user[:age]
+
+      p "私の名前は#{name}です。年齢は#{age}です"
+  }
+
 
 
 end
