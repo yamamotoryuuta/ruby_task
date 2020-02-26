@@ -51,7 +51,7 @@ def q6
   #   numbers2 << number * 10
   # end 
   # p numbers2
-  numbers2 = numbers1.map!{|number| number*10 }
+  numbers2 = numbers1.map{|number| number*10 }
 
   p numbers2
 
@@ -72,13 +72,9 @@ def q8  # まだ出来てない
   # 以下に回答を記載
   upper_case_programming_languages = []
 
-  programming_languages.map { | lang | 
-  lang.capitalize!
-}
+  programming_languages.map(&:capitalize!)
 
-  programming_languages.map { | lang | 
-  upper_case_programming_languages << lang.upcase
-}
+  upper_case_programming_languages = programming_languages.map(&:upcase)
 
   # upper_case_programming_languages << programming_languages.upcase
   # 以下は変更しないで下さい
@@ -185,15 +181,9 @@ def q15
 
   all_data = [data1, data2]
   
-  all_data.each do |data|
+  all_data.each { |data| p data.key?(:age) ? "OK" : "NG" }
 
-    if data.key?(:age)
-      p "OK"
-    else
-      p "NG"
-    end
-  end
-
+# p data[:age]? "OK" : "NG"
 end
 
 def q16
@@ -206,7 +196,7 @@ def q16
 
   # 以下に回答を記載
 
-  users.map {| user |
+  users.each {| user |
   
   name = user[:name]
   age = user[:age]
