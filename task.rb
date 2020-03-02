@@ -70,8 +70,6 @@ def q8  # まだ出来てない
 	programming_languages = %w(ruby php python javascript)
 
 	# 以下に回答を記載
- 
-
 	programming_languages.map(&:capitalize!)
 
 	upper_case_programming_languages = programming_languages.map(&:upcase)
@@ -111,19 +109,17 @@ def q10
 		end
 	end
 
-		
-
 end
 
 def q11 #まだ出来てない
 	sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
 	# 以下に回答を記載
-		sports.flatten!.uniq!
+	sports.flatten!.uniq!
 
-		sports.each.with_index(1) do |sport,i|
-			p "No#{i} #{sport}"
-		end
+	sports.each.with_index(1) do |sport,i|
+		p "No#{i} #{sport}"
+	end
 
 end
 
@@ -157,10 +153,8 @@ def q14
 	# end
 	# p keys
 
-keys = data.keys
-
-p keys
-
+  keys = data.keys
+  p keys
 end
 
 def q15
@@ -183,7 +177,7 @@ def q15
 	
 	all_data.each { |data| p data.key?(:age) ? "OK" : "NG" }
 
-# p data[:age]? "OK" : "NG"
+  # p data[:age]? "OK" : "NG"
 end
 
 def q16
@@ -197,7 +191,6 @@ def q16
 	# 以下に回答を記載
 
 	users.each {| user |
-
 		p "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
 	}
 end
@@ -211,17 +204,16 @@ class UserQ17
     @gender = params[:gender]
     @admin = params[:admin]
   end
-  
-  def info
 
-    puts <<~TEXT
-	名前:#{@name}
-	年齢:#{@age}
-	性別:#{@gender}
-	管理者権限:#{@admin ? "有り" : "無し"}
-  TEXT
+	def info
+		puts <<~TEXT
+          admin = @admin ? "有り" : "無し"
+          名前:#{@name}
+          年齢:#{@age}
+          性別:#{@gender}
+          管理者権限:#{admin}
+          TEXT
   end
-  
 
 end
 
@@ -243,8 +235,7 @@ class UserQ18
   end
 
   def introduce 
-    
-    puts @age >= 20 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜、#{@name}です！！！" 
+    @age >= 20 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜、#{@name}です！！！" 
   end
   
 end
@@ -260,22 +251,22 @@ end
 
 class Item
 	# 以下を修正して下さい
-	attr_accessor :name
-  def initialize(params)
-    @name = params[:name]
+	attr_reader :name
+  def initialize(name)
+    @name = name
   end
 
 end
 
 def q19
 	# ここは変更しないで下さい
-	book = Item.new(name: "ゼロ秒思考")
+	book = Item.new("ゼロ秒思考")
 	puts book.name
 end
 
 class UserQ20
 	# 以下に回答を記載
-	attr_accessor :name, :age
+	attr_reader :name, :age
 
   def initialize(params)
     @name = params[:name]
@@ -287,24 +278,19 @@ end
 class Zoo
 	# 以下に回答を記載
 	def initialize(params)
-    @name = params[:name]
-    @infant = params[:entry_fee][:infant]
-    @children = params[:entry_fee][:children]
-    @adult = params[:entry_fee][:adult]
-    @senior = params[:entry_fee][:senior]
+    @entry_price = params[:entry_fee]
   end
 
   def info_entry_fee(user)
-
-    if user.age >= 0 && user.age <= 5 then puts "#{user.name}さんの入場料は #{@infant}円です。"
-    elsif user.age >= 6 && user.age <= 12 then puts "#{user.name}さんの入場料は #{@children}円です。"
-    elsif  user.age >= 13 && user.age <= 64 then puts "#{user.name}さんの入場料は #{@adult}円です。"
-    elsif user.age >= 65 && user.age <= 120 then puts "#{user.name}さんの入場料は #{@senior}円です。"
-    end
-  end
-
+		case user.age
+			when  0 .. 5 then puts "#{user.name}さんの入場料は #{@entry_price[:infant]}円です。"
+			when 6 .. 12 then puts "#{user.name}さんの入場料は #{@entry_price[:children]}円です。"
+			when 13 .. 64 then puts "#{user.name}さんの入場料は #{@entry_price[:adult]}円です。"
+			when 65 .. 120 then puts "#{user.name}さんの入場料は #{@entry_price[:senior]}円です。"
+		end
+	end
+	
 end
-
 
 def q20
 	# ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
