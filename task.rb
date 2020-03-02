@@ -206,8 +206,8 @@ class UserQ17
   end
 
 	def info
+		admin = @admin ? "有り" : "無し"
 		puts <<~TEXT
-          admin = @admin ? "有り" : "無し"
           名前:#{@name}
           年齢:#{@age}
           性別:#{@gender}
@@ -283,10 +283,14 @@ class Zoo
 
   def info_entry_fee(user)
 		case user.age
-			when  0 .. 5 then puts "#{user.name}さんの入場料は #{@entry_price[:infant]}円です。"
-			when 6 .. 12 then puts "#{user.name}さんの入場料は #{@entry_price[:children]}円です。"
-			when 13 .. 64 then puts "#{user.name}さんの入場料は #{@entry_price[:adult]}円です。"
-			when 65 .. 120 then puts "#{user.name}さんの入場料は #{@entry_price[:senior]}円です。"
+			when 0 .. 5
+				puts "#{user.name}さんの入場料は #{@entry_price[:infant]}円です。"
+			when 6 .. 12
+				puts "#{user.name}さんの入場料は #{@entry_price[:children]}円です。"
+			when 13 .. 64
+				puts "#{user.name}さんの入場料は #{@entry_price[:adult]}円です。"
+			when 65 .. 120
+				puts "#{user.name}さんの入場料は #{@entry_price[:senior]}円です。"
 		end
 	end
 	
