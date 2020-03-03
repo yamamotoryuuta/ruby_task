@@ -46,7 +46,6 @@ def q6
 	# 以下に回答を記載
 
 	#  numbers2 = []
-
 	# numbers1.each do | number |
 	#   numbers2 << number * 10
 	# end 
@@ -54,7 +53,6 @@ def q6
 	numbers2 = numbers1.map{|number| number*10 }
 
 	p numbers2
-
 
 end
 
@@ -102,11 +100,11 @@ def q10
 	# end
 
 	foods.each do | food |
-		if food.include? "うに"
-			p "#{food}は好物です！"
-		else
-			p "#{food}はまぁまぁ好きです！"
-		end
+    if food.include? "うに"
+      p "#{food}は好物です！"
+    else
+      p "#{food}はまぁまぁ好きです！"
+    end
 	end
 
 end
@@ -190,9 +188,7 @@ def q16
 
 	# 以下に回答を記載
 
-	users.each {| user |
-		p "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
-	}
+	users.each { | user |  p "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。" }
 end
 
 class UserQ17
@@ -206,13 +202,13 @@ class UserQ17
   end
 
 	def info
-		admin = @admin ? "有り" : "無し"
-		puts <<~TEXT
-          名前:#{@name}
-          年齢:#{@age}
-          性別:#{@gender}
-          管理者権限:#{admin}
-          TEXT
+	admin = @admin ? "有り" : "無し"
+	puts <<~TEXT
+					名前:#{@name}
+					年齢:#{@age}
+					性別:#{@gender}
+					管理者権限:#{admin}
+				TEXT
   end
 
 end
@@ -237,7 +233,6 @@ class UserQ18
   def introduce 
     @age >= 20 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜、#{@name}です！！！" 
   end
-  
 end
 
 def q18
@@ -252,10 +247,10 @@ end
 class Item
 	# 以下を修正して下さい
 	attr_reader :name
+
   def initialize(name:)
     @name = name
   end
-
 end
 
 def q19
@@ -272,28 +267,32 @@ class UserQ20
     @name = params[:name]
     @age = params[:age]
   end
-
 end
 
 class Zoo
 	# 以下に回答を記載
-	def initialize(params)
-    @entry_price = params[:entry_fee]
+	def initialize(**params)
+		@name = params[:name]
+    @infant = params[:entry_fee][:infant]
+    @children = params[:entry_fee][:children]
+    @adult = params[:entry_fee][:adult]
+    @senior = params[:entry_fee][:senior]
   end
 
   def info_entry_fee(user)
+		entry_price = {infant: @infant, children: @children, adult: @adult, senior: @senior}
+
 		case user.age
-			when 0 .. 5
-				puts "#{user.name}さんの入場料は #{@entry_price[:infant]}円です。"
-			when 6 .. 12
-				puts "#{user.name}さんの入場料は #{@entry_price[:children]}円です。"
-			when 13 .. 64
-				puts "#{user.name}さんの入場料は #{@entry_price[:adult]}円です。"
-			when 65 .. 120
-				puts "#{user.name}さんの入場料は #{@entry_price[:senior]}円です。"
+		when 0 .. 5
+			puts "#{user.name}さんの入場料は #{entry_price[:infant]}円です。"
+		when 6 .. 12
+			puts "#{user.name}さんの入場料は #{entry_price[:children]}円です。"
+		when 13 .. 64
+			puts "#{user.name}さんの入場料は #{entry_price[:adult]}円です。"
+		when 65 .. 120
+			puts "#{user.name}さんの入場料は #{entry_price[:senior]}円です。"
 		end
 	end
-	
 end
 
 def q20
