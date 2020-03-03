@@ -229,7 +229,7 @@ end
 
 class UserQ18
 	# 以下に回答を記載
-	def initialize(params)
+	def initialize(**params)
     @name = params[:name]
     @age = params[:age]
   end
@@ -252,7 +252,7 @@ end
 class Item
 	# 以下を修正して下さい
 	attr_reader :name
-  def initialize(name)
+  def initialize(name:)
     @name = name
   end
 
@@ -260,7 +260,7 @@ end
 
 def q19
 	# ここは変更しないで下さい
-	book = Item.new("ゼロ秒思考")
+	book = Item.new(name:"ゼロ秒思考")
 	puts book.name
 end
 
